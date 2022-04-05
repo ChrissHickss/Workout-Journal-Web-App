@@ -1,0 +1,15 @@
+{% extends 'journals_app/base.html' %}
+
+{% block content %}
+  <div class="workout">
+    {% if workout.date %}
+      <div class="date">
+        {{ workout.date }}
+      </div>
+    {% endif %}
+    <a class="btn btn-default" href="{% url 'edit_workout' workout_id=workout.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <h2>{{ workout.training_day }}</h2>
+    <p>{{ workout.workouts|linebreaksbr }}</p>
+    <a href="{% url 'delete_workout' workout_id=workout.id %}">Delete This Workout</a>
+  </div>
+{% endblock %}

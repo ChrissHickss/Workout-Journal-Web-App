@@ -1,0 +1,13 @@
+{% extends 'journals_app/base.html' %}
+
+{% block content %}
+  {% for workout in workouts %}
+    <div class="workout">
+      <div class="date">
+        {{ workout.date }}
+      </div>
+      <h2><a href="{% url 'workout_detail' workout_id=workout.id %}">{{ workout.training_day }}</a></h2>
+      <p>{{ workout.workouts|linebreaksbr }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}
